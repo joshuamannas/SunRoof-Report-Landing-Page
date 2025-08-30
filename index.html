@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Your Home, Sustain Your Future | [Your Company Name]</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter for clean text, plus a more evocative secondary font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Lighter background */
+            color: #374151; /* Darker text for readability */
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif; /* A more elegant font for headings */
+        }
+        .hero-background {
+            background-image: url('https://placehold.co/1920x1080/6ee7b7/065f46'); /* Generic placeholder, replace with high-quality image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 0;
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .card-elegant {
+            background-color: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-elegant:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+        }
+        .btn-green {
+            background-color: #10b981; /* Emerald green */
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 9999px; /* Fully rounded */
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
+        }
+        .btn-green:hover {
+            background-color: #059669; /* Darker emerald on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(5, 150, 105, 0.4);
+        }
+        .input-stylish {
+            border: 1px solid #d1d5db;
+            border-radius: 0.75rem;
+            padding: 0.8rem 1.2rem;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .input-stylish:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+        .upload-area-fancy {
+            border: 3px dashed #a7f3d0; /* Lighter green dash */
+            background-color: #ecfdf5; /* Very light green */
+            border-radius: 1rem;
+            padding: 3rem;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+        .upload-area-fancy:hover {
+            border-color: #059669;
+            background-color: #d1fae5; /* Slightly darker green on hover */
+        }
+        /* Modal styling - re-using previous structure but with new colors */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header Section -->
+    <header class="bg-white text-gray-800 p-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#" class="text-2xl font-bold rounded-md px-2 py-1 transition-colors">
+                <span class="text-4xl">☀️🏠🔌</span>
+            </a>
+            <nav>
+                <ul class="flex space-x-3">
+                    <li><a href="#vision" class="hover:text-emerald-600 transition-colors text-xs md:text-sm font-medium">Why Solar</a></li>
+                    <li><a href="#benefits" class="hover:text-emerald-600 transition-colors text-xs md:text-sm font-medium">Benefits</a></li>
+                    <li><a href="#how-it-works" class="btn-green py-2 px-6 text-xs md:text-sm">Get My SunRoof Report</a></li>
+                    <li><a href="#contact" class="hover:text-emerald-600 transition-colors text-xs md:text-sm font-medium">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <!-- Hero Section: Emotional & Powerful -->
+        <section class="hero-background h-screen flex items-center justify-center text-white relative">
+            <div class="hero-overlay"></div>
+            <div class="container mx-auto text-center px-4 z-10">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-6 drop-shadow-lg">
+                    Generate Power With Your Home
+                </h1>
+                <p class="text-xl md:text-2xl font-light mb-10 max-w-4xl mx-auto drop-shadow-md">
+                    Discover true energy independence and avoid rate increases 📈 from the utility company.
+                </p>
+                <a href="#how-it-works" class="btn-green text-xl inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    Calculate Your Home's Solar Potential
+                </a>
+            </div>
+        </section>
+
+        <!-- Our Vision / Emotional Connection Section -->
+        <section id="vision" class="py-16 md:py-24 bg-gradient-to-br from-blue-50 to-green-50">
+            <div class="container mx-auto px-4 text-center max-w-4xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">3 Reasons to go Solar ☀️</h2>
+                <div class="grid md:grid-cols-3 gap-8 mt-12">
+                    <div class="card-elegant p-8 flex flex-col items-center">
+                        <div class="text-5xl text-blue-500 mb-4">💡</div>
+                        <h3 class="text-2xl font-semibold mb-3">Replaces a bill you already pay</h3>
+                        <p class="text-gray-600">Fixed monthly costs for power with an end date to a power bill</p>
+                    </div>
+                    <div class="card-elegant p-8 flex flex-col items-center">
+                        <div class="text-5xl text-emerald-500 mb-4">$0</div>
+                        <h3 class="text-2xl font-semibold mb-3">Costs nothing up front</h3>
+                        <p class="text-gray-600">No out of pocket expenses to get a solar system installed on your home</p>
+                    </div>
+                    <div class="card-elegant p-8 flex flex-col items-center">
+                        <div class="text-5xl text-purple-500 mb-4">💰</div>
+                        <h3 class="text-2xl font-semibold mb-3">Get Paid to do it</h3>
+                        <p class="text-gray-600">Federal, State, and local incentives for homes who qualify</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section - Updated Copy -->
+        <section id="benefits" class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-4 text-center max-w-5xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">The Advantages of Solar Power</h2>
+                <p class="text-lg md:text-xl text-gray-700 mb-12">
+                    Harnessing the sun's incredible energy offers more than just savings. Its an investment in your home, your future, and a cleaner brighter tomorrow.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="card-elegant p-6 flex flex-col items-center text-center">
+                        <div class="text-4xl text-emerald-500 mb-3">💸</div>
+                        <h3 class="text-xl font-semibold mb-2">Significant Bill Reduction</h3>
+                        <p class="text-gray-600">Slash electricity costs and re-invest in what matters most to you.</p>
+                    </div>
+                    <div class="card-elegant p-6 flex flex-col items-center text-center">
+                        <div class="text-4xl text-blue-500 mb-3">🔋</div>
+                        <h3 class="text-xl font-semibold mb-2">Uninterrupted Power</h3>
+                        <p class="text-gray-600">Battery storage keeps your lights on and essentials running during outages.</p>
+                    </div>
+                    <div class="card-elegant p-6 flex flex-col items-center text-center">
+                        <div class="text-4xl text-yellow-500 mb-3">🏠</div>
+                        <h3 class="text-xl font-semibold mb-2">Boost Home Value</h3>
+                        <p class="text-gray-600">Solar-equipped homes command higher market prices and sell faster.</p>
+                    </div>
+                    <div class="card-elegant p-6 flex flex-col items-center text-center">
+                        <div class="text-4xl text-green-600 mb-3">⚡️</div>
+                        <h3 class="text-xl font-semibold mb-2">Reduced Demand on Grid</h3>
+                        <p class="text-gray-600">Help during times of peak power usage and avoid potential brown outs</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lead Generation Form Section - Integrated More Smoothly -->
+        <section id="how-it-works" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-10">
+                    Ready to Unlock Your Solar Potential ☀️🏡🔌
+                </h2>
+                <p class="text-lg md:text-xl text-gray-700 text-center mb-12">
+                    Take the first step towards energy freedom. Provide a few details, and we'll craft your personalized SunRoof savings report.
+                </p>
+
+                <div class="card-elegant p-8 md:p-10">
+                    <form id="solarForm">
+                        <!-- Step 1: Contact Information -->
+                        <div id="step1" class="form-step">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Your Details (Step 1 of 2)</h3>
+                            <div class="mb-5">
+                                <label for="fullName" class="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
+                                <input type="text" id="fullName" name="fullName" class="input-stylish" placeholder="John Doe" required>
+                            </div>
+                            <div class="mb-5">
+                                <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                                <input type="email" id="email" name="email" class="input-stylish" placeholder="john.doe@example.com" required>
+                            </div>
+                            <div class="mb-8">
+                                <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone Number:</label>
+                                <input type="tel" id="phone" name="phone" class="input-stylish" placeholder="(123) 456-7890" required>
+                            </div>
+                            <div class="text-center">
+                                <button type="button" id="nextStep1" class="btn-green w-full md:w-auto">Continue to Next Step</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Utility Bill Upload -->
+                        <div id="step2" class="form-step hidden">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Your Energy Snapshot (Step 2 of 2)</h3>
+                            <p class="text-gray-700 text-center mb-6">
+                                Upload a recent utility bill to unlock a *precision* savings analysis tailored to your exact energy habits. This helps us ensure the most accurate report!
+                            </p>
+                            <div class="mb-6 text-center">
+                                <img src="https://placehold.co/400x250/d1fae5/065f46?text=Utility+Bill+Example+-+Highlight+Usage" alt="Example utility bill highlighting energy usage" class="rounded-lg shadow-md mx-auto max-w-full h-auto">
+                                <p class="text-sm text-gray-500 mt-2">Locate your total kWh usage and service address.</p>
+                            </div>
+                            <div id="dropArea" class="upload-area-fancy mb-8">
+                                <input type="file" id="utilityBill" name="utilityBill" accept="image/*,.pdf" class="hidden" required>
+                                <p class="text-gray-700 text-xl mb-2">Drag & Drop Your Bill Here</p>
+                                <p class="text-gray-500">or</p>
+                                <button type="button" id="browseFiles" class="btn-green mt-4 py-2 px-8">Browse Files</button>
+                                <p id="fileName" class="text-sm text-emerald-700 mt-3 hidden font-medium"></p>
+                            </div>
+                            <div class="text-center space-x-4">
+                                <button type="button" id="prevStep2" class="btn-green bg-gray-400 hover:bg-gray-500 shadow-none">Back</button>
+                                <button type="submit" class="btn-green w-full md:w-auto">Submit for Your Report</button>
+                            </div>
+                        </div>
+                    </form>
+                </div> <!-- End card-elegant -->
+            </div>
+        </section>
+
+        <!-- What You'll Get Section - Visually Refined -->
+        <section class="py-16 md:py-24 bg-blue-50">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-12">What Happens Next?</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="http://googleusercontent.com/image_generation_content/1" alt="Personalized Solar Savings Analysis Report" class="rounded-xl shadow-2xl w-full h-auto transform hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="md:w-1/2 text-gray-700 text-left">
+                        <p class="text-lg md:text-xl mb-6">
+                            Once your information and utility bill are received, our expert team will analyze your energy patterns to compare them with the shape and sunlight hours of your roof. We create a custom design to generate a truly **personalized Solar Savings Report**
+                        </p>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">SunRoof Report Will Include:</h3>
+                        <ul class="list-disc list-inside text-lg space-y-3 pl-4 mb-8 font-semibold text-emerald-600">
+                            <li>Your **exact monthly & annual savings** potential with solar.</li>
+                            <li>The **perfectly sized solar & (optional) battery system** for your unique home.</li>
+                            <li>Access to **all available discounts, incentives, and tax credits**.</li>
+                            <li>A clear projection of your **Immediate and long-term return on investment**.</li>
+                        </ul>
+                        <p class="text-lg md:text-xl">
+                            Shortly after, a dedicated energy consultant will personally connect with you to schedule a convenient time to walk through your report, answer every question, and explore how solar can transform your home – with absolutely **no obligation**.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- New Contact Us Section -->
+        <section id="contact" class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-4 text-center max-w-2xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Contact Us</h2>
+                <p class="text-lg md:text-xl text-gray-700 mb-8">Have a question? We're here to help.</p>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-center space-x-4">
+                        <div class="text-2xl text-emerald-600">📞</div>
+                        <a href="tel:555-555-5555" class="text-xl md:text-2xl text-gray-800 font-semibold hover:text-emerald-600 transition-colors">
+                            (555) 555-5555
+                        </a>
+                    </div>
+                    <div class="flex items-center justify-center space-x-4">
+                        <div class="text-2xl text-emerald-600">📧</div>
+                        <a href="mailto:contact@mysunroofreport.com" class="text-xl md:text-2xl text-gray-800 font-semibold hover:text-emerald-600 transition-colors">
+                            contact@mysunroofreport.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-gray-300 p-8 text-center text-sm">
+        <div class="container mx-auto px-4">
+            <p class="mb-3">&copy; 2025 [Your Company Name]. All rights reserved. Powering homes with sunshine.</p>
+            <p>
+                <a href="#" class="hover:text-emerald-400 transition-colors">Privacy Policy</a> |
+                <a href="#" class="hover:text-emerald-400 transition-colors">Terms of Service</a>
+            </p>
+            <p class="mt-5 text-gray-400">Your information is safe with us. We respect your privacy and will never sell your data.</p>
+        </div>
+    </footer>
+
+    <!-- Modal for confirmation/error messages -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modalTitle" class="text-2xl font-bold text-gray-800 mb-4"></h3>
+            <p id="modalMessage" class="text-gray-700 mb-6"></p>
+            <button id="closeModal" class="btn-green py-2 px-6">Got It!</button>
+        </div>
+    </div>
+
+    <script>
+        // Form Step Logic
+        const step1 = document.getElementById('step1');
+        const step2 = document.getElementById('step2');
+        const nextStep1Btn = document.getElementById('nextStep1');
+        const prevStep2Btn = document.getElementById('prevStep2');
+        const solarForm = document.getElementById('solarForm');
+        const fullNameInput = document.getElementById('fullName');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+
+        // File Upload Logic
+        const dropArea = document.getElementById('dropArea');
+        const utilityBillInput = document.getElementById('utilityBill');
+        const browseFilesBtn = document.getElementById('browseFiles');
+        const fileNameSpan = document.getElementById('fileName');
+
+        // Modal Logic
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+        const closeModalBtn = document.getElementById('closeModal');
+
+        function showModal(title, message) {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            modalOverlay.classList.add('open');
+        }
+
+        closeModalBtn.addEventListener('click', () => {
+            modalOverlay.classList.remove('open');
+        });
+
+        nextStep1Btn.addEventListener('click', () => {
+            // Basic validation for Step 1
+            if (fullNameInput.value.trim() === '' || emailInput.value.trim() === '' || phoneInput.value.trim() === '') {
+                showModal('Missing Information', 'Please fill in all your contact details to proceed.');
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+                showModal('Invalid Email', 'Please enter a valid email address.');
+                return;
+            }
+            if (!/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phoneInput.value)) {
+                showModal('Invalid Phone Number', 'Please enter a valid 10-digit phone number.');
+                return;
+            }
+
+            step1.classList.add('hidden');
+            step2.classList.remove('hidden');
+        });
+
+        prevStep2Btn.addEventListener('click', () => {
+            step2.classList.add('hidden');
+            step1.classList.remove('hidden');
+        });
+
+        // Handle file drop functionality
+        dropArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropArea.classList.add('border-emerald-600', 'bg-emerald-50');
+        });
+
+        dropArea.addEventListener('dragleave', () => {
+            dropArea.classList.remove('border-emerald-600', 'bg-emerald-50');
+        });
+
+        dropArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropArea.classList.remove('border-emerald-600', 'bg-emerald-50');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                utilityBillInput.files = files;
+                fileNameSpan.textContent = `File selected: ${files[0].name}`;
+                fileNameSpan.classList.remove('hidden');
+            }
+        });
+
+        // Trigger file input click when "Browse Files" button is clicked
+        browseFilesBtn.addEventListener('click', () => {
+            utilityBillInput.click();
+        });
+
+        // Update file name when selected via input
+        utilityBillInput.addEventListener('change', () => {
+            if (utilityBillInput.files.length > 0) {
+                fileNameSpan.textContent = `File selected: ${utilityBillInput.files[0].name}`;
+                fileNameSpan.classList.remove('hidden');
+            } else {
+                fileNameSpan.textContent = '';
+                fileNameSpan.classList.add('hidden');
+            }
+        });
+
+        solarForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Basic validation for Step 2
+            if (utilityBillInput.files.length === 0) {
+                showModal('Missing File', 'Please upload a copy of your utility bill to complete the analysis request.');
+                return;
+            }
+
+            // In your real setup, you would integrate Typeform here!
+            // This is a placeholder to show the user experience.
+
+            // Simulate API call success
+            showModal('Request Submitted!', 'Thank you! Your personalized solar savings analysis is being prepared. An energy consultant will contact you shortly to schedule a review.');
+
+            // Optionally reset the form after successful submission
+            solarForm.reset();
+            step2.classList.add('hidden');
+            step1.classList.remove('hidden');
+            fileNameSpan.textContent = '';
+            fileNameSpan.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

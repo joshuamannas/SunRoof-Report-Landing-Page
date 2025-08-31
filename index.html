@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Power Your Home, Sustain Your Future | [Your Company Name]</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Power Your Home, Sustain Your Future | Purelight Power</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter for clean text, plus a more evocative secondary font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&family=Playfair+Display:wght=700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght=700&display=swap">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -19,8 +17,8 @@
             color: #f8fafc; /* Lighter headings */
         }
         .hero-background { 
-            /* Correct path to use a JPG file with spaces in the name */
-            background-image: url('Sleek solar panels on home.jpg'); 
+            /* Correct path using hyphens for better web compatibility */
+            background-image: url('sleek-solar-panels-on-home.jpg'); 
             background-size: cover;
             background-position: center;
             position: relative;
@@ -117,23 +115,33 @@
             text-align: center;
             color: #d1d5db;
         }
+        /* Mobile menu specific styling for smooth transition */
+        #mobile-menu {
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+            max-height: 0; /* Hidden by default */
+        }
+        #mobile-menu.open {
+            max-height: 200px; /* Adjust as needed for content */
+        }
+        @media (min-width: 768px) {
+            #mobile-menu {
+                max-height: none !important; /* Always visible on desktop */
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-    <!-- Header Section -->
     <header class="bg-gray-900 text-gray-300 p-4 shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4">
             <a href="#" class="text-2xl font-bold rounded-md px-2 py-1 transition-colors">
                 <span class="text-4xl">☀️🏠🔌</span>
             </a>
             
-            <!-- Mobile-only CTA and Hamburger button container -->
             <div class="flex items-center space-x-3 md:hidden">
-                <!-- My SunRoof Report button - Always visible on mobile -->
                 <a href="#how-it-works" class="btn-green py-2 px-6 text-xs font-medium">My SunRoof Report</a>
                 
-                <!-- Hamburger menu button for mobile -->
                 <button id="menu-button" class="text-gray-300 hover:text-emerald-400 focus:outline-none">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -141,7 +149,6 @@
                 </button>
             </div>
             
-            <!-- Desktop-only navigation links -->
             <nav id="mobile-menu" class="hidden md:flex">
                 <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-3 mt-4 md:mt-0 items-center">
                     <li><a href="#vision" class="hover:text-emerald-400 transition-colors text-xs md:text-sm font-medium">Why Solar</a></li>
@@ -155,7 +162,6 @@
 
     <main class="flex-grow">
 
-        <!-- Hero Section: Emotional & Powerful -->
         <section class="hero-background h-screen flex items-center justify-center text-white relative">
             <div class="hero-overlay"></div>
             <div class="container mx-auto text-center px-4 z-10">
@@ -171,7 +177,6 @@
             </div>
         </section>
 
-        <!-- Our Vision / Emotional Connection Section -->
         <section id="vision" class="py-16 md:py-24 bg-gray-900">
             <div class="container mx-auto px-4 text-center max-w-4xl">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-100 mb-8">3 Reasons to go Solar ☀️</h2>
@@ -195,7 +200,6 @@
             </div>
         </section>
 
-        <!-- Benefits Section - Updated Copy -->
         <section id="benefits" class="py-16 md:py-24 bg-gray-800">
             <div class="container mx-auto px-4 text-center max-w-5xl">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-100 mb-8">The Advantages of Solar Power</h2>
@@ -227,7 +231,6 @@
             </div>
         </section>
 
-        <!-- Lead Generation Form Section - Integrated More Smoothly -->
         <section id="how-it-works" class="py-16 md:py-24 bg-gray-900">
             <div class="container mx-auto px-4 max-w-3xl">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-100 text-center mb-10">
@@ -239,7 +242,6 @@
 
                 <div class="card-elegant p-8 md:p-10">
                     <form id="solarForm">
-                        <!-- Step 1: Contact Information -->
                         <div id="step1" class="form-step">
                             <h3 class="text-2xl font-semibold text-gray-200 mb-6 text-center">Your Details (Step 1 of 2)</h3>
                             <div class="mb-5">
@@ -259,7 +261,6 @@
                             </div>
                         </div>
 
-                        <!-- Step 2: Utility Bill Upload -->
                         <div id="step2" class="form-step hidden">
                             <h3 class="text-2xl font-semibold text-gray-200 mb-6 text-center">Your Energy Snapshot (Step 2 of 2)</h3>
                             <p class="text-gray-400 text-center mb-6">
@@ -281,11 +282,9 @@
                             </div>
                         </div>
                     </form>
-                </div> <!-- End card-elegant -->
-            </div>
+                </div> </div>
         </section>
 
-        <!-- What You'll Get Section - Visually Refined -->
         <section class="py-16 md:py-24 bg-gray-800">
             <div class="container mx-auto px-4 max-w-6xl">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-100 text-center mb-12">What Happens Next?</h2>
@@ -312,40 +311,37 @@
             </div>
         </section>
 
-        <!-- New Contact Us Section -->
         <section id="contact" class="py-16 md:py-24 bg-gray-900">
             <div class="container mx-auto px-4 text-center max-w-2xl">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-100 mb-6">Contact Us</h2>
                 <p class="text-lg md:text-xl text-gray-400 mb-8">
                     Choose how you'd like to get in touch. We're here to help.
                 </p>
-                <!-- Updated Contact Links with Emojis as Buttons -->
                 <div class="flex justify-center space-x-8 md:space-x-12">
-                    <button id="call-btn" class="flex flex-col items-center focus:outline-none group">
+                    <a href="tel:2532816856" class="flex flex-col items-center focus:outline-none group">
                         <div class="text-5xl mb-2 transition-transform duration-300 group-hover:scale-110">
                             📞
                         </div>
                         <span class="text-sm font-medium text-gray-400 group-hover:text-emerald-400 transition-colors">Call</span>
-                    </button>
-                    <button id="text-btn" class="flex flex-col items-center focus:outline-none group">
+                    </a>
+                    <a href="sms:2532816856" class="flex flex-col items-center focus:outline-none group">
                         <div class="text-5xl mb-2 transition-transform duration-300 group-hover:scale-110">
                             💬
                         </div>
                         <span class="text-sm font-medium text-gray-400 group-hover:text-emerald-400 transition-colors">Text</span>
-                    </button>
-                    <button id="email-btn" class="flex flex-col items-center focus:outline-none group">
+                    </a>
+                    <a href="mailto:Joshua.Mannas@Purelightpower.com" class="flex flex-col items-center focus:outline-none group">
                         <div class="text-5xl mb-2 transition-transform duration-300 group-hover:scale-110">
                             📧
                         </div>
                         <span class="text-sm font-medium text-gray-400 group-hover:text-emerald-400 transition-colors">Email</span>
-                    </button>
+                    </a>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer Section -->
     <footer class="bg-gray-900 text-gray-400 p-8 text-center text-sm">
         <div class="container mx-auto px-4">
             <p class="mb-3">&copy; 2025 Purelight Power. All rights reserved. Powering homes with sunshine.</p>
@@ -357,7 +353,6 @@
         </div>
     </footer>
 
-    <!-- Modal for confirmation/error messages -->
     <div id="modalOverlay" class="modal-overlay">
         <div class="modal-content">
             <h3 id="modalTitle" class="text-2xl font-bold text-gray-200 mb-4"></h3>
@@ -488,26 +483,24 @@
         });
 
         menuButton.addEventListener('click', () => {
-            // This is the core logic for the mobile menu. It toggles the 'hidden' class.
-            mobileMenu.classList.toggle('hidden');
+            // Toggle the 'open' class for smooth transition
+            mobileMenu.classList.toggle('open');
+            // Also toggle 'hidden' for initial state and desktop visibility
+            if (mobileMenu.classList.contains('open')) {
+                mobileMenu.classList.remove('hidden');
+            } else {
+                // Use a timeout to re-add 'hidden' after transition for screen readers/tab index
+                setTimeout(() => {
+                    if (!mobileMenu.classList.contains('open')) { // Double check it hasn't been reopened during timeout
+                        mobileMenu.classList.add('hidden');
+                    }
+                }, 300); // Match transition duration
+            }
         });
 
-        // Contact button modal logic
-        const callBtn = document.getElementById('call-btn');
-        const textBtn = document.getElementById('text-btn');
-        const emailBtn = document.getElementById('email-btn');
-
-        callBtn.addEventListener('click', () => {
-            showModal('Call Us', 'You can reach us by phone at: <a href="tel:2532816856" class="underline hover:no-underline font-bold text-white transition-colors">(253) 281-6856</a>.');
-        });
-        
-        textBtn.addEventListener('click', () => {
-            showModal('Text Us', 'Text us at: <a href="sms:2532816856" class="underline hover:no-underline font-bold text-white transition-colors">(253) 281-6856</a>. We\'ll get back to you as soon as we can!');
-        });
-        
-        emailBtn.addEventListener('click', () => {
-            showModal('Email Us', 'Send us an email at: <a href="mailto:Joshua.Mannas@Purelightpower.com" class="underline hover:no-underline font-bold text-white transition-colors">Joshua.Mannas@Purelightpower.com</a>.');
-        });
+        // Direct contact links instead of buttons opening modals
+        // Removed original callBtn, textBtn, emailBtn event listeners
+        // The buttons are now <a> tags that directly trigger phone/sms/email.
     </script>
 </body>
 </html>

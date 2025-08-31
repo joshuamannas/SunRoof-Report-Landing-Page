@@ -18,9 +18,9 @@
             font-family: 'Playfair Display', serif; /* A more elegant font for headings */
             color: #f8fafc; /* Lighter headings */
         }
-        .hero-background {
-            /* Updated path to use a PNG file */
-            background-image: url('Sleek-solar-panels-on-home.jpg'); 
+        .hero-background { 
+            /* Correct path to use a JPG file with spaces in the name */
+            background-image: url('Sleek solar panels on home.jpg'); 
             background-size: cover;
             background-position: center;
             position: relative;
@@ -317,20 +317,29 @@
         <section id="contact" class="py-16 md:py-24 bg-gray-900">
             <div class="container mx-auto px-4 text-center max-w-2xl">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-100 mb-6">Contact Us</h2>
-                <p class="text-lg md:text-xl text-gray-400 mb-8">Have a question? We're here to help.</p>
-                <div class="space-y-4">
-                    <div class="flex items-center justify-center space-x-4">
-                        <div class="text-2xl text-emerald-400">📞</div>
-                        <a href="tel:555-555-5555" class="text-xl md:text-2xl text-gray-400 font-semibold hover:text-emerald-400 transition-colors">
-                            (253) 281-6856
-                        </a>
-                    </div>
-                    <div class="flex items-center justify-center space-x-4">
-                        <div class="text-2xl text-emerald-400">📧</div>
-                        <a href="mailto:contact@mysunroofreport.com" class="text-xl md:text-2xl text-gray-400 font-semibold hover:text-emerald-400 transition-colors">
-                            Joshua.Mannas@Purelightpower.com
-                        </a>
-                    </div>
+                <p class="text-lg md:text-xl text-gray-400 mb-8">
+                    Choose how you'd like to get in touch. We're here to help.
+                </p>
+                <!-- Updated Contact Links with Emojis as Buttons -->
+                <div class="flex justify-center space-x-8 md:space-x-12">
+                    <button id="call-btn" class="flex flex-col items-center focus:outline-none group">
+                        <div class="text-5xl mb-2 transition-transform duration-300 group-hover:scale-110">
+                            📞
+                        </div>
+                        <span class="text-sm font-medium text-gray-400 group-hover:text-emerald-400 transition-colors">Call</span>
+                    </button>
+                    <button id="text-btn" class="flex flex-col items-center focus:outline-none group">
+                        <div class="text-5xl mb-2 transition-transform duration-300 group-hover:scale-110">
+                            💬
+                        </div>
+                        <span class="text-sm font-medium text-gray-400 group-hover:text-emerald-400 transition-colors">Text</span>
+                    </button>
+                    <button id="email-btn" class="flex flex-col items-center focus:outline-none group">
+                        <div class="text-5xl mb-2 transition-transform duration-300 group-hover:scale-110">
+                            📧
+                        </div>
+                        <span class="text-sm font-medium text-gray-400 group-hover:text-emerald-400 transition-colors">Email</span>
+                    </button>
                 </div>
             </div>
         </section>
@@ -387,7 +396,7 @@
 
         function showModal(title, message) {
             modalTitle.textContent = title;
-            modalMessage.textContent = message;
+            modalMessage.innerHTML = message;
             modalOverlay.classList.add('open');
         }
 
@@ -482,6 +491,23 @@
         menuButton.addEventListener('click', () => {
             // This is the core logic for the mobile menu. It toggles the 'hidden' class.
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Contact button modal logic
+        const callBtn = document.getElementById('call-btn');
+        const textBtn = document.getElementById('text-btn');
+        const emailBtn = document.getElementById('email-btn');
+
+        callBtn.addEventListener('click', () => {
+            showModal('Call Us', 'You can reach us by phone at: <a href="tel:2532816856" class="underline hover:no-underline font-bold text-white transition-colors">(253) 281-6856</a>.');
+        });
+        
+        textBtn.addEventListener('click', () => {
+            showModal('Text Us', 'Text us at: <a href="sms:2532816856" class="underline hover:no-underline font-bold text-white transition-colors">(253) 281-6856</a>. We\'ll get back to you as soon as we can!');
+        });
+        
+        emailBtn.addEventListener('click', () => {
+            showModal('Email Us', 'Send us an email at: <a href="mailto:Joshua.Mannas@Purelightpower.com" class="underline hover:no-underline font-bold text-white transition-colors">Joshua.Mannas@Purelightpower.com</a>.');
         });
     </script>
 </body>

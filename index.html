@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Power Your Home, Sustain Your Future | Purelight Power</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght=700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -166,7 +166,7 @@
             <div class="hero-overlay"></div>
             <div class="container mx-auto text-center px-4 z-10">
                 <h1 class="text-4xl md:text-5xl font-extrabold mb-6 drop-shadow-lg">
-                    Take Control of Your Power... Generate It With Your Home!
+                    Take Control of Your Power...Generate It With Your Home!
                 </h1>
                 <p class="text-xl md:text-2xl font-light mb-10 max-w-4xl mx-auto drop-shadow-md">
                     Discover true energy independence and avoid the ever increasing cost of utilities 📈
@@ -241,48 +241,10 @@
                 </p>
 
                 <div class="card-elegant p-8 md:p-10">
-                    <form id="solarForm">
-                        <div id="step1" class="form-step">
-                            <h3 class="text-2xl font-semibold text-gray-200 mb-6 text-center">Your Details (Step 1 of 2)</h3>
-                            <div class="mb-5">
-                                <label for="fullName" class="block text-gray-400 text-sm font-bold mb-2">Full Name:</label>
-                                <input type="text" id="fullName" name="fullName" class="input-stylish" placeholder="John Doe" required>
-                            </div>
-                            <div class="mb-5">
-                                <label for="email" class="block text-gray-400 text-sm font-bold mb-2">Email:</label>
-                                <input type="email" id="email" name="email" class="input-stylish" placeholder="john.doe@example.com" required>
-                            </div>
-                            <div class="mb-8">
-                                <label for="phone" class="block text-gray-400 text-sm font-bold mb-2">Phone Number:</label>
-                                <input type="tel" id="phone" name="phone" class="input-stylish" placeholder="(123) 456-7890" required>
-                            </div>
-                            <div class="text-center">
-                                <button type="button" id="nextStep1" class="btn-green w-full md:w-auto">Continue to Next Step</button>
-                            </div>
-                        </div>
-
-                        <div id="step2" class="form-step hidden">
-                            <h3 class="text-2xl font-semibold text-gray-200 mb-6 text-center">Your Energy Snapshot (Step 2 of 2)</h3>
-                            <p class="text-gray-400 text-center mb-6">
-                                Upload a recent utility bill to unlock a *precision* savings analysis tailored to your exact energy habits. This helps us ensure the most accurate report!
-                            </p>
-                            <div class="mb-6 text-center">
-                                <img src="https://placehold.co/400x250/d1fae5/065f46?text=Utility+Bill+Example+-+Highlight+Usage" alt="Example utility bill highlighting energy usage" class="rounded-lg shadow-md mx-auto max-w-full h-auto">
-                            </div>
-                            <div id="dropArea" class="upload-area-fancy mb-8">
-                                <input type="file" id="utilityBill" name="utilityBill" accept="image/*,.pdf" class="hidden" required>
-                                <p class="text-gray-400 text-xl mb-2">Drag & Drop Your Bill Here</p>
-                                <p class="text-gray-500">or</p>
-                                <button type="button" id="browseFiles" class="btn-green mt-4 py-2 px-8">Browse Files</button>
-                                <p id="fileName" class="text-sm text-emerald-400 mt-3 hidden font-medium"></p>
-                            </div>
-                            <div class="text-center space-x-4">
-                                <button type="button" id="prevStep2" class="btn-green bg-gray-400 hover:bg-gray-500 shadow-none">Back</button>
-                                <button type="submit" class="btn-green w-full md:w-auto">Submit for Your Report</button>
-                            </div>
-                        </div>
-                    </form>
-                </div> </div>
+                    <div data-tf-live="01K40Z1T9ZGGZBHKW331XX5GVF"></div>
+                    <script src="//embed.typeform.com/next/embed.js"></script>
+                </div>
+            </div>
         </section>
 
         <section class="py-16 md:py-24 bg-gray-800">
@@ -362,22 +324,6 @@
     </div>
 
     <script>
-        // Form Step Logic
-        const step1 = document.getElementById('step1');
-        const step2 = document.getElementById('step2');
-        const nextStep1Btn = document.getElementById('nextStep1');
-        const prevStep2Btn = document.getElementById('prevStep2');
-        const solarForm = document.getElementById('solarForm');
-        const fullNameInput = document.getElementById('fullName');
-        const emailInput = document.getElementById('email');
-        const phoneInput = document.getElementById('phone');
-
-        // File Upload Logic
-        const dropArea = document.getElementById('dropArea');
-        const utilityBillInput = document.getElementById('utilityBill');
-        const browseFilesBtn = document.getElementById('browseFiles');
-        const fileNameSpan = document.getElementById('fileName');
-
         // Modal Logic
         const modalOverlay = document.getElementById('modalOverlay');
         const modalTitle = document.getElementById('modalTitle');
@@ -398,90 +344,6 @@
             modalOverlay.classList.remove('open');
         });
 
-        nextStep1Btn.addEventListener('click', () => {
-            // Basic validation for Step 1
-            if (fullNameInput.value.trim() === '' || emailInput.value.trim() === '' || phoneInput.value.trim() === '') {
-                showModal('Missing Information', 'Please fill in all your contact details to proceed.');
-                return;
-            }
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
-                showModal('Invalid Email', 'Please enter a valid email address.');
-                return;
-            }
-            if (!/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phoneInput.value)) {
-                showModal('Invalid Phone Number', 'Please enter a valid 10-digit phone number.');
-                return;
-            }
-
-            step1.classList.add('hidden');
-            step2.classList.remove('hidden');
-        });
-
-        prevStep2Btn.addEventListener('click', () => {
-            step2.classList.add('hidden');
-            step1.classList.remove('hidden');
-        });
-
-        // Handle file drop functionality
-        dropArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            dropArea.classList.add('border-emerald-600', 'bg-emerald-50');
-        });
-
-        dropArea.addEventListener('dragleave', () => {
-            dropArea.classList.remove('border-emerald-600', 'bg-emerald-50');
-        });
-
-        dropArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropArea.classList.remove('border-emerald-600', 'bg-emerald-50');
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                utilityBillInput.files = files;
-                fileNameSpan.textContent = `File selected: ${files[0].name}`;
-                fileNameSpan.classList.remove('hidden');
-            }
-        });
-
-        // Trigger file input click when "Browse Files" button is clicked
-        browseFilesBtn.addEventListener('click', () => {
-            utilityBillInput.click();
-        });
-
-        // Update file name when selected via input
-        utilityBillInput.addEventListener('change', () => {
-            if (utilityBillInput.files.length > 0) {
-                fileNameSpan.textContent = `File selected: ${utilityBillInput.files[0].name}`;
-                fileNameSpan.classList.remove('hidden');
-            } else {
-                fileNameSpan.textContent = '';
-                fileNameSpan.classList.add('hidden');
-            }
-        });
-
-        solarForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            // Basic validation for Step 2
-            if (utilityBillInput.files.length === 0) {
-                showModal('Missing File', 'Please upload a copy of your utility bill to complete the analysis request.');
-                return;
-            }
-
-            // In your real setup, you would integrate Typeform here!
-            // This is a placeholder to show the user experience.
-
-            // Simulate API call success
-            showModal('Request Submitted!', 'Thank you! Your personalized solar savings analysis is being prepared. An energy consultant will contact you shortly to schedule a review.');
-
-            // Optionally reset the form after successful submission
-            solarForm.reset();
-            step2.classList.add('hidden');
-            step1.classList.remove('hidden');
-            fileNameSpan.textContent = '';
-            fileNameSpan.classList.add('hidden');
-        });
-
         menuButton.addEventListener('click', () => {
             // Toggle the 'open' class for smooth transition
             mobileMenu.classList.toggle('open');
@@ -497,10 +359,6 @@
                 }, 300); // Match transition duration
             }
         });
-
-        // Direct contact links instead of buttons opening modals
-        // Removed original callBtn, textBtn, emailBtn event listeners
-        // The buttons are now <a> tags that directly trigger phone/sms/email.
     </script>
 </body>
 </html>

@@ -7,7 +7,7 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter for clean text, plus a more evocative secondary font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght=700&display=swap">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -126,8 +126,19 @@
             <a href="#" class="text-2xl font-bold rounded-md px-2 py-1 transition-colors">
                 <span class="text-4xl">☀️🏠🔌</span>
             </a>
-            <nav>
-                <ul class="flex space-x-3">
+            
+            <!-- Hamburger menu button for mobile -->
+            <div class="md:hidden">
+                <button id="menu-button" class="text-gray-300 hover:text-emerald-400 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Navigation links, hidden on mobile by default -->
+            <nav id="mobile-menu" class="hidden md:flex">
+                <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-3 mt-4 md:mt-0 items-center">
                     <li><a href="#vision" class="hover:text-emerald-400 transition-colors text-xs md:text-sm font-medium">Why Solar</a></li>
                     <li><a href="#benefits" class="hover:text-emerald-400 transition-colors text-xs md:text-sm font-medium">Benefits</a></li>
                     <li><a href="#how-it-works" class="btn-green py-2 px-6 text-xs md:text-sm">My SunRoof Report</a></li>
@@ -149,7 +160,7 @@
                 <p class="text-xl md:text-2xl font-light mb-10 max-w-4xl mx-auto drop-shadow-md">
                     Discover true energy independence and avoid rate increases 📈 from the utility company.
                 </p>
-                <a href="#how-it-works" class="btn-green text-xl inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <a href="#how-it-works" class="btn-green text-lg md:text-xl inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full md:w-auto">
                     Calculate Your Home's Solar Potential
                 </a>
             </div>
@@ -365,6 +376,10 @@
         const modalMessage = document.getElementById('modalMessage');
         const closeModalBtn = document.getElementById('closeModal');
 
+        // Mobile menu logic
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
         function showModal(title, message) {
             modalTitle.textContent = title;
             modalMessage.textContent = message;
@@ -457,6 +472,11 @@
             step1.classList.remove('hidden');
             fileNameSpan.textContent = '';
             fileNameSpan.classList.add('hidden');
+        });
+
+        menuButton.addEventListener('click', () => {
+            // This is the core logic for the mobile menu. It toggles the 'hidden' class.
+            mobileMenu.classList.toggle('hidden');
         });
     </script>
 </body>

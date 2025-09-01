@@ -1,4 +1,137 @@
-<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Your Home, Sustain Your Future | Purelight Power</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212; /* Darker background */
+            color: #d1d5db; /* Lighter text for readability */
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif; /* A more elegant font for headings */
+            color: #f8fafc; /* Lighter headings */
+        }
+        .hero-background { 
+            /* Correct path using hyphens for better web compatibility */
+            background-image: url('sleek-solar-panels-on-home.jpg'); 
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 0;
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .card-elegant {
+            background-color: #1f2937; /* Darker card background */
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-elegant:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+        }
+        .btn-green {
+            background-color: #10b981; /* Emerald green */
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 9999px; /* Fully rounded */
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
+        }
+        .btn-green:hover {
+            background-color: #059669; /* Darker emerald on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(5, 150, 105, 0.4);
+        }
+        .input-stylish {
+            background-color: #374151;
+            border: 1px solid #4b5563;
+            border-radius: 0.75rem;
+            padding: 0.8rem 1.2rem;
+            width: 100%;
+            box-sizing: border-box;
+            color: white;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .input-stylish:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+        .upload-area-fancy {
+            border: 3px dashed #a7f3d0; /* Lighter green dash */
+            background-color: #1f2937; /* Very light green */
+            border-radius: 1rem;
+            padding: 3rem;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+        .upload-area-fancy:hover {
+            border-color: #059669;
+            background-color: #111827; /* Slightly darker green on hover */
+        }
+        /* Modal styling - re-using previous structure but with new colors */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: #1f2937;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            color: #d1d5db;
+        }
+        /* Mobile menu specific styling for smooth transition */
+        #mobile-menu {
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+            max-height: 0; /* Hidden by default */
+        }
+        #mobile-menu.open {
+            max-height: 200px; /* Adjust as needed for content */
+        }
+        @media (min-width: 768px) {
+            #mobile-menu {
+                max-height: none !important; /* Always visible on desktop */
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
 
     <header class="bg-gray-900 text-gray-300 p-4 shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4">
@@ -33,10 +166,10 @@
             <div class="hero-overlay"></div>
             <div class="container mx-auto text-center px-4 z-10">
                 <h1 class="text-4xl md:text-5xl font-extrabold mb-6 drop-shadow-lg">
-                    Take Control of Your Power and Generate It With Your Home
+                    Take Control of Your Power...Generate It With Your Home!
                 </h1>
                 <p class="text-xl md:text-2xl font-light mb-10 max-w-4xl mx-auto drop-shadow-md">
-                    Discover true energy independence and avoid rate increases 📈 from the utility company.
+                    Discover true energy independence and avoid the ever increasing cost of utilities 📈
                 </p>
                 <a href="#how-it-works" class="btn-green text-lg md:text-xl inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full md:w-auto" data-tf-popup="01K40ZV06J47H182QA5SWK0FMS">
                     Calculate Your Home's Solar Potential
@@ -122,21 +255,25 @@
                 <div class="flex flex-col md:flex-row items-center gap-12">
                     <div class="md:w-1/2 text-gray-400 text-left order-2 md:order-1">
                         <p class="text-lg md:text-xl mb-6">
-                            Once your information and utility bill are received, our expert team will analyze your energy patterns to compare them with the shape and sunlight hours of your roof. We'll create a custom design to generate a truly **personalized Solar Savings Report** 📈
+                            Once your information and utility bill are received, our expert team will analyze your energy patterns to compare them with the shape and sunlight hours of your roof. We create a custom design to generate a truly **personalized Solar Savings Report**.
                         </p>
-                        <h3 class="text-2xl font-semibold text-gray-200 mb-4 mt-8 md:mt-0">Your SunRoof Report Includes:</h3>
-                        <ul class="list-disc list-inside text-lg space-y-3 pl-4 mb-8 font-semibold text-emerald-400">
+                        
+                        <h3 class="text-2xl font-semibold text-gray-200 mt-8 mb-4">SunRoof Report Will Include:</h3>
+                        
+                        <ul class="list-disc list-inside text-lg space-y-4 pl-4 mb-8 font-semibold text-emerald-400">
                             <li>Your **exact monthly & annual savings** potential with solar.</li>
                             <li>The **perfectly sized solar & (optional) battery system** for your unique home.</li>
                             <li>Access to **all available discounts, incentives, and tax credits**.</li>
                             <li>A clear projection of your **immediate and long-term return on investment**.</li>
                         </ul>
+                        
                         <p class="text-lg md:text-xl">
                             Shortly after, a dedicated energy consultant will personally connect with you to schedule a convenient time to walk through your report, answer every question, and explore how solar can transform your home – with absolutely **no obligation**.
                         </p>
                     </div>
+                    
                     <div class="md:w-1/2 order-1 md:order-2">
-                        <img src="https://i.ibb.co/6P0D6kQ/Purelight-Power-personalized-Solar-Savings-Report-example.jpg" alt="Personalized Solar Savings Analysis Report" class="rounded-xl shadow-2xl w-full h-auto transform hover:scale-105 transition-transform duration-300">
+                        <img src="http://googleusercontent.com/image_generation_content/1" alt="Personalized Solar Savings Analysis Report" class="rounded-xl shadow-2xl w-full h-auto transform hover:scale-105 transition-transform duration-300">
                     </div>
                 </div>
             </div>
@@ -201,32 +338,4 @@
 
         // Mobile menu logic
         const menuButton = document.getElementById('menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        function showModal(title, message) {
-            modalTitle.textContent = title;
-            modalMessage.innerHTML = message;
-            modalOverlay.classList.add('open');
-        }
-
-        closeModalBtn.addEventListener('click', () => {
-            modalOverlay.classList.remove('open');
-        });
-
-        menuButton.addEventListener('click', () => {
-            // Toggle the 'open' class for smooth transition
-            mobileMenu.classList.toggle('open');
-            // Also toggle 'hidden' for initial state and desktop visibility
-            if (mobileMenu.classList.contains('open')) {
-                mobileMenu.classList.remove('hidden');
-            } else {
-                // Use a timeout to re-add 'hidden' after transition for screen readers/tab index
-                setTimeout(() => {
-                    if (!mobileMenu.classList.contains('open')) { // Double check it hasn't been reopened during timeout
-                        mobileMenu.classList.add('hidden');
-                    }
-                }, 300); // Match transition duration
-            }
-        });
-    </script>
-</body>
+        const mobileMenu = document.

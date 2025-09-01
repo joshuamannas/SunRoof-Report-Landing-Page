@@ -17,7 +17,7 @@
             color: #f8fafc; /* Lighter headings */
         }
         .hero-background { 
-            /* Retaining the original file name with a space */
+            /* Correct path using hyphens for better web compatibility */
             background-image: url('sleek-solar-panels-on-home.jpg'); 
             background-size: cover;
             background-position: center;
@@ -166,10 +166,10 @@
             <div class="hero-overlay"></div>
             <div class="container mx-auto text-center px-4 z-10">
                 <h1 class="text-4xl md:text-5xl font-extrabold mb-6 drop-shadow-lg">
-                    Take Control of Your Power...Generate It With Your Home!
+                    Take Control of Your Power and Generate It With Your Home
                 </h1>
                 <p class="text-xl md:text-2xl font-light mb-10 max-w-4xl mx-auto drop-shadow-md">
-                    Discover true energy independence and avoid the ever increasing cost of utilities 📈
+                    Discover true energy independence and avoid rate increases 📈 from the utility company.
                 </p>
                 <a href="#how-it-works" class="btn-green text-lg md:text-xl inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full md:w-auto" data-tf-popup="01K40ZV06J47H182QA5SWK0FMS">
                     Calculate Your Home's Solar Potential
@@ -252,9 +252,115 @@
         <section class="py-16 md:py-24 bg-gray-800">
             <div class="container mx-auto px-4 max-w-6xl">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-100 text-center mb-12">What Happens Next?</h2>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="http://googleusercontent.com/image_generation_content/1" alt="Personalized Solar Savings Analysis Report" class="rounded-xl shadow-2xl w-full h-auto transform hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="md:w-1/2 text-gray-400 text-left">
                         <p class="text-lg md:text-xl mb-6">
-                            Once your information and utility bill are received, our expert team will analyze your energy patterns to compare them with the shape and sunlight hours of your roof. We create a custom design to generate a truly **personalized Solar Savings Report**.
+                            Once your information and utility bill are received, our expert team will analyze your energy patterns to compare them with the shape and sunlight hours of your roof. We create a custom design to generate a truly **personalized Solar Savings Report**
                         </p>
-                        <h3 class="text-2xl font-semibold text-gray-200 mb-4">
+                        <h3 class="text-2xl font-semibold text-gray-200 mb-4">SunRoof Report Will Include:</h3>
+                        <ul class="list-disc list-inside text-lg space-y-3 pl-4 mb-8 font-semibold text-emerald-400">
+                            <li>Your **exact monthly & annual savings** potential with solar.</li>
+                            <li>The **perfectly sized solar & (optional) battery system** for your unique home.</li>
+                            <li>Access to **all available discounts, incentives, and tax credits**.</li>
+                            <li>A clear projection of your **Immediate and long-term return on investment**.</li>
+                        </ul>
+                        <p class="text-lg md:text-xl">
+                            Shortly after, a dedicated energy consultant will personally connect with you to schedule a convenient time to walk through your report, answer every question, and explore how solar can transform your home – with absolutely **no obligation**.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 bg-gray-900">
+            <div class="container mx-auto px-4 text-center max-w-2xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-100 mb-6">Contact Us</h2>
+                <p class="text-lg md:text-xl text-gray-400 mb-8">
+                    Choose how you'd like to get in touch. We're here to help.
+                </p>
+                <div class="flex justify-center space-x-8 md:space-x-12">
+                    <a href="tel:2532816856" class="flex flex-col items-center focus:outline-none group">
+                        <div class="text-5xl mb-2 transition-transform duration-300 group-hover:scale-110">
+                            📞
+                        </div>
+                        <span class="text-sm font-medium text-gray-400 group-hover:text-emerald-400 transition-colors">Call</span>
+                    </a>
+                    <a href="sms:2532816856" class="flex flex-col items-center focus:outline-none group">
+                        <div class="text-5xl mb-2 transition-transform duration-300 group-hover:scale-110">
+                            💬
+                        </div>
+                        <span class="text-sm font-medium text-gray-400 group-hover:text-emerald-400 transition-colors">Text</span>
+                    </a>
+                    <a href="mailto:Joshua.Mannas@Purelightpower.com" class="flex flex-col items-center focus:outline-none group">
+                        <div class="text-5xl mb-2 transition-transform duration-300 group-hover:scale-110">
+                            📧
+                        </div>
+                        <span class="text-sm font-medium text-gray-400 group-hover:text-emerald-400 transition-colors">Email</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 p-8 text-center text-sm">
+        <div class="container mx-auto px-4">
+            <p class="mb-3">&copy; 2025 Purelight Power. All rights reserved. Powering homes with sunshine.</p>
+            <p>
+                <a href="#" class="hover:text-emerald-400 transition-colors">Privacy Policy</a> |
+                <a href="#" class="hover:text-emerald-400 transition-colors">Terms of Service</a>
+            </p>
+            <p class="mt-5 text-gray-400">Your information is safe with us. We respect your privacy and will never sell your data.</p>
+        </div>
+    </footer>
+
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modalTitle" class="text-2xl font-bold text-gray-200 mb-4"></h3>
+            <p id="modalMessage" class="text-gray-400 mb-6"></p>
+            <button id="closeModal" class="btn-green py-2 px-6">Got It!</button>
+        </div>
+    </div>
+
+    <script>
+        // Modal Logic
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+        const closeModalBtn = document.getElementById('closeModal');
+
+        // Mobile menu logic
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function showModal(title, message) {
+            modalTitle.textContent = title;
+            modalMessage.innerHTML = message;
+            modalOverlay.classList.add('open');
+        }
+
+        closeModalBtn.addEventListener('click', () => {
+            modalOverlay.classList.remove('open');
+        });
+
+        menuButton.addEventListener('click', () => {
+            // Toggle the 'open' class for smooth transition
+            mobileMenu.classList.toggle('open');
+            // Also toggle 'hidden' for initial state and desktop visibility
+            if (mobileMenu.classList.contains('open')) {
+                mobileMenu.classList.remove('hidden');
+            } else {
+                // Use a timeout to re-add 'hidden' after transition for screen readers/tab index
+                setTimeout(() => {
+                    if (!mobileMenu.classList.contains('open')) { // Double check it hasn't been reopened during timeout
+                        mobileMenu.classList.add('hidden');
+                    }
+                }, 300); // Match transition duration
+            }
+        });
+    </script>
+</body>
+</html>
